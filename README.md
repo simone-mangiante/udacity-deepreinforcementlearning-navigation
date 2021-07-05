@@ -1,8 +1,8 @@
 # udacity-deepreinforcementlearning-navigation
 
-In this project I train an agent to navigate and collect bananas in a large, square world.
+In this project I train a DQN agent to navigate and collect bananas in a large, square world.
 
-FIGURE
+![banana](banana.png "Unity environment")
 
 ## Environment
 
@@ -41,5 +41,10 @@ Then, place the file in the `p1_navigation/ folder` in the DRLND GitHub reposito
 After you have followed the instructions above, open `Navigation.ipynb` (located in the `p1_navigation/ folder` in the DRLND GitHub repository) and follow the instructions to learn how to use the Python API to control the agent.
 
 ## Implementation code
+My code is distributed in these files:
+- [model.py](model.py) which contains the definition of the DQN nueral network
+- [dqn_agent.py](dqn_agent.py) which contains the definition of the agent and the experience replay buffer
+- [Navigation.ipynb](Navigation.ipynb) which is the main Jupyter notebook to train and watch an agent
 
 ## Results
+Results of my experiments are documented [here](Report.md)
