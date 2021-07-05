@@ -2,7 +2,7 @@
 
 In this project I train a DQN agent to navigate and collect bananas in a large, square world.
 
-![banana](banana.png "Unity environment")
+![banana](banana.gif "Unity environment")
 
 ## Environment
 
