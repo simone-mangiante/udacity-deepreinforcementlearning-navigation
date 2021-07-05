@@ -33,14 +33,24 @@ I trained all the 6 parameters combinations with single DQN and `param1`, `param
 
 | Name          | Episode solving the environment | Plot of rewards      | Scores of 3 runs with the earliest model | Scores of 3 runs with the fully trained model | 
 |---------------|---------------------------------|--------------------- |------------------------------------------|-----------------------------------------------|
-| `param1`      | 446                             | ![](param1.png)      | [16.0, 18.0, 16.0]                       | [12.0, 22.0, 16.0]                            |
-| `param1_ddqn` | 390                             | ![](param1_ddqn.png) | [17.0, 10.0, 5.0]                        | [12.0, 15.0, 11.0]                            |
-| `param2`      | 1320                            | ![](param2.png)      | [5.0, 11.0, 15.0]                        | [13.0, 14.0, 11.0]                            |
-| `param3`      | 403                             | ![](param3.png)      | [12.0, 17.0, 18.0]                       | [18.0, 17.0, 13.0]                            |
-| `param4`      | 817                             | ![](param4.png)      | [21.0, 0.0, 17.0]                        | [7.0, 15.0, 16.0]                             |
-| `param4_ddqn` | 546                             | ![](param4_ddqn.png) | [17.0, 18.0, 11.0]                       | [16.0, 14.0, 18.0]                            |
-| `param5`      | 817                             | ![](param5.png)      | [16.0, 13.0, 18.0]                       | [13.0, 17.0, 16.0]                            |
-| `param6`      | 817                             | ![](param6.png)      | [3.0, 10.0, 1.0]                         | [11.0, 12.0, 16.0]                            |
-| `param6_ddqn` | 546                             | ![](param6_ddqn.png) | [12.0, 7.0, 11.0]                        | [6.0, 20.0, 15.0]                             |
+| `param1`      | 446                             | ![](param1.png)      | `[16.0, 18.0, 16.0]`                     | `[12.0, 22.0, 16.0]`                          |
+| `param1_ddqn` | 390                             | ![](param1_ddqn.png) | `[17.0, 10.0, 5.0]`                      | `[12.0, 15.0, 11.0]`                          |
+| `param2`      | 1320                            | ![](param2.png)      | `[5.0, 11.0, 15.0]`                      | `[13.0, 14.0, 11.0]`                          |
+| `param3`      | 403                             | ![](param3.png)      | `[12.0, 17.0, 18.0]`                     | `[18.0, 17.0, 13.0]`                          |
+| `param4`      | 817                             | ![](param4.png)      | `[21.0, 0.0, 17.0]`                      | `[7.0, 15.0, 16.0]`                           |
+| `param4_ddqn` | 546                             | ![](param4_ddqn.png) | `[17.0, 18.0, 11.0]`                     | `[16.0, 14.0, 18.0]`                          |
+| `param5`      | 479                             | ![](param5.png)      | `[16.0, 13.0, 18.0]`                     | `[13.0, 17.0, 16.0]`                          |
+| `param6`      | 706                             | ![](param6.png)      | `[3.0, 10.0, 1.0]`                       | `[11.0, 12.0, 16.0]`                          |
+| `param6_ddqn` | 741                             | ![](param6_ddqn.png) | `[12.0, 7.0, 11.0]`                      | `[6.0, 20.0, 15.0]`                           |
+
+As expected, `param2` with a much smaller buffer size took the longest to solve the environment.
+`param3`, with a double batch size, took the least number of episodes to solve the environment.
+`param5` and `param6`, although having only one layer with a small number of nodes, could still solve the environment pretty quickly.
+In general the DDQN versions learn faster than the single DQN ones and reach higher values at the end of the 2000 episodes.
+
+When scores are low (below 10) it's because the agent gets stuck in a corner or in between 2 blue bananas and keep repeating the same 2 actions back and forth until it reaches the maximum number of steps allowed in a single episode (1000). This happened more frequently for the earliest model.
 
 ## Future work
+Plans for improving my results include:
+- implement prioritised experience buffer replay
+- decrease the maximum steps allowed per episode to make the learning tougher
